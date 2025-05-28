@@ -5,6 +5,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const vehicleRoutes = require('./routes/vehicle')
+const userRoutes = require('./routes/user')
 
 mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log("connected to db"))
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cors())
 
 app.use("/api", vehicleRoutes);
+app.use("/api", userRoutes)
 
 const Port_NO = 8000
 
