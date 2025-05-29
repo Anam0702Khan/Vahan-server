@@ -17,7 +17,11 @@ app.use(cors())
 
 app.use("/api", vehicleRoutes);
 app.use("/api", userRoutes)
+const PORT = process.env.PORT || 5000
 
-const Port_NO = 8000
+app.get("/", (req, res) => {
+  res.send("Backend is live on Render");
+});
 
-app.listen(Port_NO, () => console.log("listening to port"))
+
+app.listen(PORT, () => console.log(`listening to port${PORT}`))
